@@ -575,7 +575,7 @@ class _AddSalesPersonViewState extends State<AddSalesPersonView> {
             salesPerson.userTelephone = phoneController.text;
             salesPerson.userEmail = emailController.text;
             salesPerson.password = passwordController.text;
-            salesPerson.promoCode = _codePromo;
+            salesPerson.promoCode = "${extractFirstTwoCharacters(nameController.text)}${_codePromo!}";
             salesPerson.access = false;
             salesPerson.createdBy = widget.admin?.id;
             await createUserAccountWithEmailPassword(salesPerson);
@@ -686,6 +686,14 @@ class _AddSalesPersonViewState extends State<AddSalesPersonView> {
           backgroundColor: Colors.redAccent,
         ),
       );
+    }
+  }
+
+  String extractFirstTwoCharacters(String text) {
+    if (text.length >= 2) {
+      return text.substring(0, 2).toUpperCase();
+    } else {
+      return text; // Retourne la chaîne complète si elle contient moins de deux caractères
     }
   }
 }
