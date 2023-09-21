@@ -7,26 +7,66 @@ import '../models/referal_info_model.dart';
 
 List analyticData = [
   AnalyticInfo(
-    title: "Subscribers",
-    count: 720,
-    svgSrc: "assets/icons/Subscribers.svg",
+    title: "Utilisateurs",
+    svgSrc: "assets/icons/users.svg",
     color: primaryColor,
   ),
   AnalyticInfo(
-    title: "Post",
-    count: 820,
+    title: "Commerciaux",
+    svgSrc: "assets/icons/users.svg",
+    color: purple,
+  ),
+  AnalyticInfo(
+    title: "Clients",
+    svgSrc: "assets/icons/users.svg",
+    color: orange,
+  ),
+  AnalyticInfo(
+    title: "Chauffeurs",
+    svgSrc: "assets/icons/Comments.svg",
+    color: green,
+  ),
+
+
+  AnalyticInfo(
+    title: "Administrateurs",
+    svgSrc: "assets/icons/users.svg",
+    color: primaryColor,
+  ),
+  AnalyticInfo(
+    title: "Voitures",
     svgSrc: "assets/icons/Post.svg",
     color: purple,
   ),
   AnalyticInfo(
-    title: "Pages",
-    count: 920,
+    title: "Reservations",
     svgSrc: "assets/icons/Pages.svg",
     color: orange,
   ),
   AnalyticInfo(
-    title: "Comments",
-    count: 920,
+    title: "Transactions",
+    svgSrc: "assets/icons/Comments.svg",
+    color: green,
+  ),
+
+
+  AnalyticInfo(
+    title: "Courses",
+    svgSrc: "assets/icons/users.svg",
+    color: primaryColor,
+  ),
+  AnalyticInfo(
+    title: "Assistants",
+    svgSrc: "assets/icons/Post.svg",
+    color: purple,
+  ),
+  AnalyticInfo(
+    title: "Voyages",
+    svgSrc: "assets/icons/Pages.svg",
+    color: orange,
+  ),
+  AnalyticInfo(
+    title: "Cars",
     svgSrc: "assets/icons/Comments.svg",
     color: green,
   ),

@@ -11,7 +11,7 @@ class Reservation {
 
   String? id;
   Timestamp? dateReservation;
-  Enum? etatReservation;
+  int? etatReservation;
   String? customerId;
   StartPoint? pointDepart;
   EndPoint? pointArrive;
@@ -34,15 +34,15 @@ class Reservation {
 
 
 
-  factory Reservation.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data()!;
+  factory Reservation.fromMap(Map<String, dynamic> data) {
+    //final data = document.data()!;
     return Reservation(
-        id: document.id,
+        id: data['idReservation'],
         dateReservation: data['dateReservation'],
         etatReservation: data['etatReservation'],
         customerId: data['idClient'],
-        pointDepart: data['pointDepart'] != null ? StartPoint.fromSnapshot(data['pointDepart']) : null,
-        pointArrive: data['positionArrive'] != null ? EndPoint.fromSnapshot(data['positionArrive']) : null,
+        pointDepart: data['pointDepart'] != null ? StartPoint.fromMap(data['pointDepart']) : null,
+        pointArrive: data['pointArrive'] != null ? EndPoint.fromMap(data['pointArrive']) : null,
         positionClient: data['positionClient'],
         prixReservation: data['prixReservation'],
         typeRservation: data['typeRservation'],

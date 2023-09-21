@@ -4,8 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../constants/constants.dart';
 import '../../../models/analytic_info_model.dart';
 class AnalyticInfoCard extends StatelessWidget {
-  const AnalyticInfoCard({Key? key, required this.info}) : super(key: key);
+  const AnalyticInfoCard({Key? key, required this.info, required this.value}) : super(key: key);
 
+  final Widget value;
   final AnalyticInfo info;
 
   @override
@@ -24,14 +25,7 @@ class AnalyticInfoCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "${info.count}",
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
+              value,
               Container(
                 padding: EdgeInsets.all(appPadding / 2),
                 height: 40,

@@ -49,16 +49,15 @@ class UserAccount {
     this.updatedAt,
   });
 
-  /*UserAccount.fromMap(Map map) : this(
-      id: map.containsKey('id') ? map['id'] : null,
-      expireCniDate: map.containsKey('expireCniDate') ? map['expireCniDate'] : null,
+  UserAccount.fromMap(Map map) : this(
+      id: map['userid'] ?? map['id'],
+      expireCniDate: map.containsKey('ExpireCniDate') ? map['ExpireCniDate'] : null,
       userAdresse: map.containsKey('userAdresse') ? map['userAdresse'] : null,
       userCni: map.containsKey('userCni') ? map['userCni'] : null,
       userEmail: map.containsKey('userEmail') ? map['userEmail'] : null,
       userName: map.containsKey('userName') ? map['userName'] : null,
       userTelephone: map.containsKey('userTelephone') ? map['userTelephone'] : null,
-      userid: map.containsKey('userid') ? map['userid'] : null
-  );*/
+  );
 
   Map<String, dynamic> toMap(){
     return {
@@ -96,7 +95,7 @@ class UserAccount {
     return UserAccount(
 
       id: document.id,
-      expireCniDate: data["expireCniDate"] ?? data["expirationCni"],
+      expireCniDate: data["ExpireCniDate"] ?? data["ExpireCniDate"],
       userAdresse: data["userAdresse"],
       userCni: data["userCni"] ?? data["cni"],
       userEmail: data["userEmail"] ?? data["email"],

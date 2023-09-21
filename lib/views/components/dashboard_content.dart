@@ -10,7 +10,7 @@ import '../../constants/responsive.dart';
 import '../../models/user_account_model.dart';
 import 'analytic_cards.dart';
 import 'custom_appbar.dart';
-import 'discussions.dart';
+import 'reservations.dart';
 
 class DashboardContent extends StatelessWidget {
   final Administrator? admin;
@@ -46,7 +46,7 @@ class DashboardContent extends StatelessWidget {
                             const SizedBox(
                               height: appPadding,
                             ),
-                          if (Responsive.isMobile(context)) const Discussions(),
+                          if (Responsive.isMobile(context)) Reservations(),
                         ],
                       ),
                     ),
@@ -55,9 +55,9 @@ class DashboardContent extends StatelessWidget {
                         width: appPadding,
                       ),
                     if (!Responsive.isMobile(context))
-                      const Expanded(
+                       Expanded(
                         flex: 2,
-                        child: Discussions(),
+                        child: Reservations(),
                       ),
                   ],
                 ),

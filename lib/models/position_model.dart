@@ -2,8 +2,8 @@
 
 class Position {
 
-  int? lat;
-  int? long;
+  double? lat;
+  double? long;
 
   Position({
     this.lat,

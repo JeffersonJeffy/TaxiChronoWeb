@@ -27,5 +27,10 @@ const Map<String, dynamic> fr = {
   "validate": "Valider",
   "salesperson_list": "Liste des Commerciaux",
   "loading": "Chargement Encours...",
+  "reservation_list": "Liste Reservations",
+  "made_reservation_from": " a d'éffectué une réservation de ",
+  "at_the_price_of": " au prix de ",
+  "at": " à ",
+  "Date": "Date ",
 
 };

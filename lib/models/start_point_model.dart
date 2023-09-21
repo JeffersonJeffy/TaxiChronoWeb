@@ -11,8 +11,8 @@ class StartPoint {
 
   StartPoint({this.code, this.nom, this.position});
 
-  factory StartPoint.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data()!;
+  factory StartPoint.fromMap(Map<String, dynamic> data) {
+    //final data = document.data()!;
     return StartPoint(
       code: data['code'],
       nom: data['nom'],

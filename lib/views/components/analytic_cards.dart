@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
@@ -29,7 +30,7 @@ class AnalyticCards extends StatelessWidget {
 }
 
 class AnalyticInfoCardGridView extends StatelessWidget {
-  const AnalyticInfoCardGridView({
+   AnalyticInfoCardGridView({
     Key? key,
     this.crossAxisCount = 4,
     this.childAspectRatio = 1.4,
@@ -37,9 +38,65 @@ class AnalyticInfoCardGridView extends StatelessWidget {
 
   final int crossAxisCount;
   final double childAspectRatio;
+  final List<Future<int> Function()> counterItemsCollection = [
+         () async {
+       final usersQuery = await FirebaseFirestore.instance.collection('Utilisateur').get();
+       return usersQuery.docs.length;
+     },
+         () async {
+       final usersQuery = await FirebaseFirestore.instance.collection('Commerciaux').get();
+       return usersQuery.docs.length;
+     },
+         () async {
+       final usersQuery = await FirebaseFirestore.instance.collection('Clients').get();
+       return usersQuery.docs.length;
+     },
+         () async {
+       final usersQuery = await FirebaseFirestore.instance.collection('Chauffeur').get();
+       return usersQuery.docs.length;
+     },
+
+
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('administrateur').get();
+      return usersQuery.docs.length;
+    },
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('cars').get();
+      return usersQuery.docs.length;
+    },
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('Reservation').get();
+      return usersQuery.docs.length;
+    },
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('TransactionApp').get();
+      return usersQuery.docs.length;
+    },
+
+
+
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('Courses').get();
+      return usersQuery.docs.length;
+    },
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('riders').get();
+      return usersQuery.docs.length;
+    },
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('trips').get();
+      return usersQuery.docs.length;
+    },
+        () async {
+      final usersQuery = await FirebaseFirestore.instance.collection('cars').get();
+      return usersQuery.docs.length;
+    },
+   ];
 
   @override
   Widget build(BuildContext context) {
+
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -50,9 +107,34 @@ class AnalyticInfoCardGridView extends StatelessWidget {
         mainAxisSpacing: appPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) => AnalyticInfoCard(
-        info: analyticData[index],
-      ),
+      itemBuilder: (context, index) {
+
+        var value = FutureBuilder<int>(
+          future: counterItemsCollection[index](),
+          builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasError) {
+              return Text('Erreur : ${snapshot.error}');
+            } else {
+              return Text(
+                "${snapshot.data}",
+                style: const TextStyle(
+                  color: textColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
+              );
+            }
+          },
+        );
+
+        return AnalyticInfoCard(
+          info: analyticData[index],
+          value: value
+        );
+
+      }
     );
   }
 }

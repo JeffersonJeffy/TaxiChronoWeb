@@ -27,5 +27,10 @@ const Map<String, dynamic> en = {
   "validate": "Validate",
   "salesperson_list": "Salesperson List",
   "loading": "Loading...",
+  "reservation_list": "Reservations list",
+  "made_reservation_from": " made reservation from ",
+  "at_the_price_of": " at the price of ",
+  "at": " at ",
+  "Date": "Date ",
 
 };

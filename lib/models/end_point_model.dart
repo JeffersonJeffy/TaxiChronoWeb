@@ -11,8 +11,8 @@ class EndPoint {
 
   EndPoint({this.code, this.nom, this.position});
 
-  factory EndPoint.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data()!;
+  factory EndPoint.fromMap(Map<String, dynamic> data) {
+    //final data = document.data()!;
     return EndPoint(
       code: data['code'],
       nom: data['nom'],
