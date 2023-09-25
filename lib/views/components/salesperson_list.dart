@@ -63,7 +63,7 @@ class SalesPersonList extends StatelessWidget {
 
                 final salesPersons = snapshot.data!.docs;
                 return ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
+                  //physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: salesPersons.length,
                   itemBuilder: (context, index) {

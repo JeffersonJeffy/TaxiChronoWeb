@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taxi_chrono_web/views/add_salesperson_view.dart';
 import 'package:taxi_chrono_web/views/components/salesperson_list.dart';
 import 'package:taxi_chrono_web/views/components/salespersons.dart';
+import 'package:taxi_chrono_web/views/salesperson_view.dart';
 import '../../constants/constants.dart';
 import '../../constants/responsive.dart';
 import '../../localizations/localization.dart';
@@ -20,7 +21,7 @@ class SalesPersonContent extends StatelessWidget {
         padding: const EdgeInsets.all(appPadding),
         child: Column(
           children: [
-            CustomAppbar(admin: admin, typeUser: "sales_person"),
+            CustomAppbar(admin: admin, type: SalesPersonView.pageName),
             const SizedBox(
               height: appPadding,
             ),

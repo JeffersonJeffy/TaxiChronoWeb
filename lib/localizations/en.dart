@@ -32,5 +32,7 @@ const Map<String, dynamic> en = {
   "at_the_price_of": " at the price of ",
   "at": " at ",
   "Date": "Date ",
+  "transactions_list": "Transactions list",
+  "transactions": "Transactions",
 
 };

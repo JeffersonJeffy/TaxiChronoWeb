@@ -49,6 +49,7 @@ dependencies:
   flutter_svg: ^2.0.7
   shared_preferences: ^2.2.1
   firebase_auth: ^4.9.0
+  responsive_table: ^0.2.0+2
 
 flutter_icons:
     android: "launcher_icon"

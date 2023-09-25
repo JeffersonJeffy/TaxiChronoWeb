@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_chrono_web/localizations/localization.dart';
+import 'package:taxi_chrono_web/views/components/transactions.dart';
 
 import '../../constants/constants.dart';
 import 'bar_chart_users.dart';
@@ -8,10 +10,11 @@ class Users extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations localization = AppLocalizations.of(context)!;
     return Container(
       height: 400,
       width: double.infinity,
-      padding: EdgeInsets.all(appPadding),
+      padding: const EdgeInsets.all(appPadding),
       decoration: BoxDecoration(
         color: secondaryColor,
         borderRadius: BorderRadius.circular(10),
@@ -20,15 +23,16 @@ class Users extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Users",
-            style: TextStyle(
+            localization.trans("transactions_list")!,
+            style: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 15,
               color: textColor,
             ),
           ),
-          Expanded(
+           const Expanded(
             child: BarChartUsers(),
+            //child: Transactions(),
           )
         ],
       ),

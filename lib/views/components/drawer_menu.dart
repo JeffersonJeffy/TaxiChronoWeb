@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_chrono_web/views/salesperson_view.dart';
+import 'package:taxi_chrono_web/views/transaction_view.dart';
 
 import '../../../constants/constants.dart';
 import '../../../localizations/localization.dart';
@@ -27,6 +28,15 @@ class DrawerMenu extends StatelessWidget {
               tap: () {
                 Navigator.of(context)
                     .pushNamed(DashboardView.pageName, arguments: {
+                  "admin": admin
+                });
+              }),
+          DrawerListTile(
+              title: localization.trans('transactions')!,
+              svgSrc: 'assets/icons/Statistics.svg',
+              tap: () {
+                Navigator.of(context)
+                    .pushNamed(TransactionView.pageName, arguments: {
                   "admin": admin
                 });
               }),

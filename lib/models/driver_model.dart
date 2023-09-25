@@ -4,9 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:taxi_chrono_web/models/position_model.dart';
 import 'package:taxi_chrono_web/models/user_account_model.dart';
 
-class Driver extends UserAccount{
+class Driver extends UserAccount {
 
-  String? expirePermiDate;
+  Timestamp? expirePermiDate;
   String? numeroPermi;
 
   bool? online;
@@ -59,8 +59,8 @@ class Driver extends UserAccount{
     type: type, createdAt: createdAt, updatedAt: updatedAt,);
 
 
-  factory Driver.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data()!;
+  factory Driver.fromMap(Map<String, dynamic> data) {
+    //final data = document.data()!;
     return Driver(
       expirePermiDate: data['expirePermiDate'],
       numeroPermi: data['numeroPermi'],
@@ -78,7 +78,7 @@ class Driver extends UserAccount{
       payer: data['payer'],
       treated: data['treated'],
       //userAccount: data['user'] != null ? User.fromSnapshot(data['user']) : null,
-        id: document.id,
+        //id: document.id,
         expireCniDate: data["expiration_cni"] ?? data["expireCniDate"],
         userAdresse: data["userAdresse"],
         userCni: data["cni"] ?? data["userCni"],

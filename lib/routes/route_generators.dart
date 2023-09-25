@@ -5,6 +5,7 @@ import 'package:taxi_chrono_web/controller/dashboard_controller.dart';
 import 'package:taxi_chrono_web/views/add_salesperson_view.dart';
 import 'package:taxi_chrono_web/views/login_view.dart';
 import 'package:taxi_chrono_web/views/salesperson_view.dart';
+import 'package:taxi_chrono_web/views/transaction_view.dart';
 
 import '../controller/salesperson_controller.dart';
 import '../views/dashboard_view.dart';
@@ -80,6 +81,29 @@ class RouteGenerator {
             return AddSalesPersonView();
           }
         },
+        );
+
+      case TransactionView.pageName:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext builder) => MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (context) => DashboardController()),
+            ],
+            child: Builder(
+              builder: (BuildContext context) {
+                final arguments = routeSettings.arguments;
+                if (arguments is Map && arguments.containsKey("admin")) {
+                  final admin = arguments["admin"];
+                  return TransactionView(admin: admin);
+                } else {
+                  // Gérez le cas où "admin" n'est pas présent dans les arguments
+                  // ou si les arguments ne sont pas de type Map
+                  return const TransactionView();
+                }
+              },
+            ),
+          ),
         );
 
       default:
