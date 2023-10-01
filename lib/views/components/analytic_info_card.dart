@@ -12,7 +12,7 @@ class AnalyticInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: appPadding,
         vertical: appPadding / 2,
       ),
@@ -27,7 +27,7 @@ class AnalyticInfoCard extends StatelessWidget {
             children: [
               value,
               Container(
-                padding: EdgeInsets.all(appPadding / 2),
+                padding: const EdgeInsets.all(appPadding / 2),
                 height: 40,
                 width: 40,
                 decoration: BoxDecoration(
@@ -44,7 +44,7 @@ class AnalyticInfoCard extends StatelessWidget {
             info.title!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               color: textColor,
               fontSize: 15,
               fontWeight: FontWeight.w600,

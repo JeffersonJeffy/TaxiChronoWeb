@@ -34,5 +34,9 @@ const Map<String, dynamic> en = {
   "Date": "Date ",
   "transactions_list": "Transactions list",
   "transactions": "Transactions",
+  "drivers": "Drivers",
+  "driver_list": "Driver List",
+  "cars": "Cars",
+  "form_save": "Registration Form",
 
 };

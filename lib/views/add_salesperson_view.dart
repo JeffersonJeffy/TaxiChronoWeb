@@ -578,7 +578,8 @@ class _AddSalesPersonViewState extends State<AddSalesPersonView> {
             salesPerson.promoCode = "${extractFirstTwoCharacters(nameController.text)}${_codePromo!}";
             salesPerson.access = false;
             salesPerson.createdBy = widget.admin?.id;
-            await createUserAccountWithEmailPassword(salesPerson);
+            //await createUserAccountWithEmailPassword(salesPerson);
+            await createSalesPerson(salesPerson);
           }
         },
         child: isLoading?  Row(

@@ -23,7 +23,7 @@ List analyticData = [
   ),
   AnalyticInfo(
     title: "Chauffeurs",
-    svgSrc: "assets/icons/Comments.svg",
+    svgSrc: "assets/icons/chauffeur.svg",
     color: green,
   ),
 
@@ -35,7 +35,7 @@ List analyticData = [
   ),
   AnalyticInfo(
     title: "Voitures",
-    svgSrc: "assets/icons/Post.svg",
+    svgSrc: "assets/icons/car.svg",
     color: purple,
   ),
   AnalyticInfo(
@@ -52,11 +52,11 @@ List analyticData = [
 
   AnalyticInfo(
     title: "Courses",
-    svgSrc: "assets/icons/users.svg",
+    svgSrc: "assets/icons/car.svg",
     color: primaryColor,
   ),
   AnalyticInfo(
-    title: "Assistants",
+    title: "Passagers",
     svgSrc: "assets/icons/Post.svg",
     color: purple,
   ),
@@ -64,11 +64,6 @@ List analyticData = [
     title: "Voyages",
     svgSrc: "assets/icons/Pages.svg",
     color: orange,
-  ),
-  AnalyticInfo(
-    title: "Cars",
-    svgSrc: "assets/icons/Comments.svg",
-    color: green,
   ),
 ];
 

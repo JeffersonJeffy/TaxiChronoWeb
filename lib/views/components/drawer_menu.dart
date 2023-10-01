@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_chrono_web/views/car_view.dart';
+import 'package:taxi_chrono_web/views/driver_view.dart';
 import 'package:taxi_chrono_web/views/salesperson_view.dart';
 import 'package:taxi_chrono_web/views/transaction_view.dart';
 
@@ -46,6 +48,24 @@ class DrawerMenu extends StatelessWidget {
               tap: () {
                 Navigator.of(context)
                     .pushNamed(SalesPersonView.pageName, arguments: {
+                  "admin": admin
+                });
+              }),
+          DrawerListTile(
+              title: localization.trans('drivers')!,
+              svgSrc: 'assets/icons/chauffeur.svg',
+              tap: () {
+                Navigator.of(context)
+                    .pushNamed(DriverView.pageName, arguments: {
+                  "admin": admin
+                });
+              }),
+          DrawerListTile(
+              title: localization.trans('cars')!,
+              svgSrc: 'assets/icons/car.svg',
+              tap: () {
+                Navigator.of(context)
+                    .pushNamed(CarView.pageName, arguments: {
                   "admin": admin
                 });
               }),

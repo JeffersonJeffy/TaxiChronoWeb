@@ -14,16 +14,14 @@ class AnalyticCards extends StatelessWidget {
 
     Size size = MediaQuery.of(context).size;
 
-    return Container(
-      child: Responsive(
-        mobile: AnalyticInfoCardGridView(
-          crossAxisCount: size.width < 650 ? 2 : 4,
-          childAspectRatio: size.width < 650 ? 2 : 1.5,
-        ),
-        tablet: AnalyticInfoCardGridView(),
-        desktop: AnalyticInfoCardGridView(
-          childAspectRatio: size.width < 1400 ? 1.5 : 2.1,
-        ),
+    return Responsive(
+      mobile: AnalyticInfoCardGridView(
+        crossAxisCount: size.width < 650 ? 2 : 4,
+        childAspectRatio: size.width < 650 ? 2 : 1.5,
+      ),
+      tablet: AnalyticInfoCardGridView(),
+      desktop: AnalyticInfoCardGridView(
+        childAspectRatio: size.width < 1400 ? 1.5 : 2.1,
       ),
     );
   }
@@ -88,10 +86,6 @@ class AnalyticInfoCardGridView extends StatelessWidget {
       final usersQuery = await FirebaseFirestore.instance.collection('trips').get();
       return usersQuery.docs.length;
     },
-        () async {
-      final usersQuery = await FirebaseFirestore.instance.collection('cars').get();
-      return usersQuery.docs.length;
-    },
    ];
 
   @override
@@ -133,6 +127,7 @@ class AnalyticInfoCardGridView extends StatelessWidget {
           info: analyticData[index],
           value: value
         );
+
 
       }
     );

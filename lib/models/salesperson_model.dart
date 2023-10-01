@@ -7,7 +7,6 @@ class SalesPerson extends UserAccount {
   String? salesRegion;
   int? salesTarget;
   String? promoCode;
-  String? createdBy;
 
   SalesPerson({
     String? id,
@@ -28,12 +27,12 @@ class SalesPerson extends UserAccount {
     String? quartier,
     String? sexe,
     String? type,
+    String? createdBy,
     Timestamp? createdAt,
     Timestamp? updatedAt,
     this.salesRegion,
     this.salesTarget,
     this.promoCode,
-    this.createdBy,
     // Autres champs spécifiques au vendeur
   }) : super(id: id,
     expireCniDate: expireCniDate,
@@ -53,6 +52,7 @@ class SalesPerson extends UserAccount {
     quartier: quartier,
     sexe: sexe,
     type: type,
+    createdBy: createdBy,
     createdAt: createdAt,
     updatedAt: updatedAt,);
 
@@ -63,7 +63,6 @@ class SalesPerson extends UserAccount {
     data["sales_region"] = salesRegion;
     data["sales_target"] = salesTarget;
     data["promo_code"] = promoCode;
-    data["created_by"] = createdBy;
     return data;
   }
 
@@ -89,13 +88,13 @@ class SalesPerson extends UserAccount {
         quartier: data["quartier"],
         sexe: data["sexe"],
         type: data["type"],
+        createdBy: data["created_by"],
         createdAt: data["created_at"],
         updatedAt: data["updated_at"],
 
         salesRegion: data["sales_region"],
         salesTarget: data["sales_target"],
-        promoCode: data["promo_code"],
-        createdBy: data["created_by"],
+        promoCode: data["promo_code"]
     );
   }
 

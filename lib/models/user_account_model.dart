@@ -23,6 +23,7 @@ class UserAccount {
   String? quartier;
   String? sexe;
   String? type;
+  String? createdBy;
   Timestamp? createdAt;
   Timestamp? updatedAt;
 
@@ -45,18 +46,20 @@ class UserAccount {
     this.quartier,
     this.sexe,
     this.type,
+    this.createdBy,
     this.createdAt,
     this.updatedAt,
   });
 
   UserAccount.fromMap(Map map) : this(
       id: map['userid'] ?? map['id'],
-      expireCniDate: map.containsKey('ExpireCniDate') ? map['ExpireCniDate'] : null,
+      expireCniDate: map.containsKey('ExpireCniDate') ? map['ExpireCniDate']?.toString() : null,
       userAdresse: map.containsKey('userAdresse') ? map['userAdresse'] : null,
       userCni: map.containsKey('userCni') ? map['userCni'] : null,
       userEmail: map.containsKey('userEmail') ? map['userEmail'] : null,
       userName: map.containsKey('userName') ? map['userName'] : null,
       userTelephone: map.containsKey('userTelephone') ? map['userTelephone'] : null,
+      createdBy: map.containsKey('created_by') ? map['created_by'] : null,
   );
 
   Map<String, dynamic> toMap(){
@@ -79,6 +82,7 @@ class UserAccount {
       "quartier": quartier,
       "sexe": sexe,
       "type": type,
+      "created_by": createdBy,
       "created_at": createdAt,
       "updated_at": createdAt,
 
@@ -113,6 +117,7 @@ class UserAccount {
       quartier: data["quartier"],
       sexe: data["sexe"],
       type: data["type"],
+      createdBy: data["created_by"],
       createdAt: data["created_at"],
       updatedAt: data["updated_at"],
 
@@ -143,6 +148,7 @@ class Administrator extends UserAccount {
     String? quartier,
     String? sexe,
     String? type,
+    String? createdBy,
     Timestamp? createdAt,
     Timestamp? updatedAt,
   }) : super(id: id, expireCniDate: expireCniDate,
@@ -150,7 +156,7 @@ class Administrator extends UserAccount {
     userName: userName, userTelephone: userTelephone, access: access,
     cniRecto: cniRecto, cniVerso: cniVerso, code: code, dateNaissance: dateNaissance,
     password: password, pays: pays, photo: photo, quartier: quartier, sexe: sexe,
-    type: type, createdAt: createdAt, updatedAt: updatedAt,);
+    type: type, createdBy:createdBy, createdAt: createdAt, updatedAt: updatedAt,);
 
   @override
   Map<String, dynamic> toMap(){
@@ -174,6 +180,7 @@ class Administrator extends UserAccount {
       "quartier": quartier,
       "sexe": sexe,
       "type": type,
+      "created_by": createdBy,
       "created_at": createdAt,
       "updatedAt": updatedAt,
 
@@ -208,6 +215,7 @@ class Administrator extends UserAccount {
         quartier: data["quartier"],
         sexe: data["sexe"],
         type: data["type"],
+        createdBy: data["created_by"],
         createdAt: data["created_at"],
         updatedAt: data["updated_at"]
     );
